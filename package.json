@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/Meeran-Tofiq/battleship/issues"
   },
-  "homepage": "https://github.com/Meeran-Tofiq/battleship#readme"
+  "homepage": "https://github.com/Meeran-Tofiq/battleship#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
 }
