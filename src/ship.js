@@ -10,9 +10,14 @@ const shipFactory = (len) => {
         return hits;
     };
 
+    const isSunk = () => {
+        return hits === length;
+    };
+
     return {
         hit,
         getHits,
+        isSunk,
     };
 };
 
