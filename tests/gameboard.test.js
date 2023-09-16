@@ -1,3 +1,5 @@
+import { gameBoardFactory } from '../src/gameboard';
+
 describe('placeShip', () => {
     let board;
     beforeEach(() => (board = gameBoardFactory()));
