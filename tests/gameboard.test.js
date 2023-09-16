@@ -79,3 +79,10 @@ describe('losing the game', () => {
         expect(board.haveLost()).toBe(false);
     });
 });
+
+it('is not possible gameBoard objects to have the same board', () => {
+    let a = gameBoardFactory();
+    let b = gameBoardFactory();
+    a.placeShip([2, 2], [4, 2]);
+    expect(a === b).toBe(false);
+});
