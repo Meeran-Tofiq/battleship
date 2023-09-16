@@ -37,8 +37,11 @@ const gameBoardFactory = () => {
 
     const recieveHit = (p) => {
         let des = board[p[0]][p[1]];
-        if (des && des !== -1) return true;
-        else {
+        if (des && des !== -1 && des !== 0) {
+            des.hit();
+            board[p[0]][p[1]] = 0;
+            return true;
+        } else {
             board[p[0]][p[1]] = -1;
             return false;
         }
