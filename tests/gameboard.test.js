@@ -36,6 +36,11 @@ describe('recieving an attack', () => {
         expect(board.recieveHit([1, 1])).toBe(true);
     });
 
+    it('hits a ship, if the spot has a ship on it', () => {
+        board.placeShip([2, 2], [5, 2]);
+        expect(board.recieveHit([3, 2])).toBe(true);
+    });
+
     it("causes a miss, if the spot doesn't have a ship on it", () => {
         expect(board.recieveHit([1, 1])).toBe(false);
     });
