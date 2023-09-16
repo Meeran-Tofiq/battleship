@@ -51,3 +51,31 @@ describe('recieving an attack', () => {
         expect(board.recieveHit([1, 1])).toBe(false);
     });
 });
+
+describe('losing the game', () => {
+    let board;
+    beforeEach(() => (board = gameBoardFactory()));
+
+    it('returns true when all ships have sunk', () => {
+        board.placeShip([1, 1], [1, 3]);
+        board.placeShip([5, 5], [7, 5]);
+        board.recieveHit([1, 1]);
+        board.recieveHit([1, 2]);
+        board.recieveHit([1, 3]);
+        board.recieveHit([5, 5]);
+        board.recieveHit([6, 5]);
+        board.recieveHit([7, 5]);
+        expect(board.haveLost()).toBe(true);
+    });
+
+    it("returns false when all ships haven't been sunken", () => {
+        board.placeShip([1, 1], [1, 3]);
+        board.placeShip([5, 5], [7, 5]);
+        board.recieveHit([1, 1]);
+        board.recieveHit([1, 2]);
+        board.recieveHit([1, 3]);
+        board.recieveHit([5, 5]);
+        board.recieveHit([6, 5]);
+        expect(board.haveLost()).toBe(false);
+    });
+});
