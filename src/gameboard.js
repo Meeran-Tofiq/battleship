@@ -35,8 +35,18 @@ const gameBoardFactory = () => {
         return true;
     };
 
+    const recieveHit = (p) => {
+        let des = board[p[0]][p[1]];
+        if (des && des !== -1) return true;
+        else {
+            board[p[0]][p[1]] = -1;
+            return false;
+        }
+    };
+
     return {
         placeShip,
+        recieveHit,
     };
 };
 
