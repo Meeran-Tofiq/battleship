@@ -26,3 +26,17 @@ describe('placeShip', () => {
         expect(board.placeShip([1, 1], [12, 3])).toBe(false);
     });
 });
+
+describe('recieving an attack', () => {
+    let board;
+    beforeEach(() => (board = gameBoardFactory()));
+
+    it('hits a ship, if the spot has a ship on it', () => {
+        board.placeShip([1, 1], [1, 3]);
+        expect(board.recieveHit([1, 1])).toBe(true);
+    });
+
+    it("causes a miss, if the spot doesn't have a ship on it", () => {
+        expect(board.recieveHit([1, 1])).toBe(false);
+    });
+});
