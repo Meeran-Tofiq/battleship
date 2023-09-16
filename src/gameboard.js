@@ -26,7 +26,7 @@ const gameBoardFactory = () => {
             if (board[x][y]) return false;
         }
 
-        let ship = shipFactory();
+        let ship = shipFactory(len);
         ships.push(ship);
 
         for (let ind = 0; ind < xArr.length; ind++) {
