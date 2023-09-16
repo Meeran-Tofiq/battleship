@@ -2,6 +2,7 @@ import { shipFactory } from './ship';
 
 const gameBoardFactory = () => {
     let board = Array.from({ length: 10 }, () => new Array(10));
+    let ships = [];
 
     const placeShip = (p1, p2) => {
         if (p1[0] > 10 || p1[1] > 10 || p2[0] > 10 || p2[1] > 10) return false;
@@ -26,6 +27,7 @@ const gameBoardFactory = () => {
         }
 
         let ship = shipFactory();
+        ships.push(ship);
 
         for (let ind = 0; ind < xArr.length; ind++) {
             const x = xArr[ind];
@@ -47,9 +49,18 @@ const gameBoardFactory = () => {
         }
     };
 
+    const haveLost = () => {
+        for (let ind = 0; ind < ships.length; ind++) {
+            const ship = ships[ind];
+            if (!ship.isSunk()) return false;
+        }
+        return true;
+    };
+
     return {
         placeShip,
         recieveHit,
+        haveLost,
     };
 };
 
