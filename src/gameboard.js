@@ -43,10 +43,8 @@ const gameBoardFactory = () => {
             des.hit();
             board[p[0]][p[1]] = 0;
             return true;
-        } else if (des === -1 || des === 0) {
-            return des;
         } else {
-            board[p[0]][p[1]] = -1;
+            if (des === undefined) board[p[0]][p[1]] = -1;
             return false;
         }
     };
