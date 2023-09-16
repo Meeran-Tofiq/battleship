@@ -1,4 +1,5 @@
 import { gameBoardFactory } from '../src/gameboard';
+import { playerFactory } from '../src/player';
 
 describe("player's turn", () => {
     let player;
@@ -8,7 +9,7 @@ describe("player's turn", () => {
         expect(player.getTurn()).toBe(true);
     });
 
-    it("returns false when it is the player's turn", () => {
+    it("returns false when it is not the player's turn", () => {
         player.setEnemy(gameBoardFactory());
         player.attack([1, 1]);
         expect(player.getTurn()).toBe(false);
@@ -25,6 +26,6 @@ describe('player attacks', () => {
     });
 
     it('returns true when you attack an empty spot', () => {
-        expect(player.attack([9, 9])).toBe(false);
+        expect(player.attack([9, 9])).toBe(true);
     });
 });
