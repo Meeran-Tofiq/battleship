@@ -1,6 +1,6 @@
 describe('placeShip', () => {
     let board;
-    beforEach(() => (board = gameBoardFactory()));
+    beforeEach(() => (board = gameBoardFactory()));
     it('places ship when spot is empty', () => {
         expect(board.placeShip([1, 1], [3, 1])).toBe(true);
     });
