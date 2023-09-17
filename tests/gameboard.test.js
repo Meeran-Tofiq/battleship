@@ -85,6 +85,27 @@ describe('losing the game', () => {
     });
 });
 
+describe('showing cells that can be shot by the other player', () => {
+    let board;
+    beforeEach(() => (board = gameBoardFactory()));
+
+    it('returns true when the spot has not been hit before', () => {
+        expect(board.canBeShotAt([9, 9])).toBe(true);
+    });
+
+    it('returns false when the spot has been hit before, and it was a miss', () => {
+        expect(board.canBeShotAt([9, 9])).toBe(true);
+    });
+
+    it('returns true when the spot has been hit before, and it was a success', () => {
+        expect(board.canBeShotAt([9, 9])).toBe(true);
+    });
+
+    it('returns true when the spot has not been hit before', () => {
+        expect(board.canBeShotAt([9, 9])).toBe(true);
+    });
+});
+
 it('is not possible gameBoard objects to have the same board', () => {
     let a = gameBoardFactory();
     let b = gameBoardFactory();
