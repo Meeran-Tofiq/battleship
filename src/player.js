@@ -22,10 +22,22 @@ const playerFactory = (t, opp) => {
         enemyBoard = _enemy;
     };
 
+    const makeRandomAttack = () => {
+        let x, y;
+        let shot = false;
+
+        while (!shot) {
+            x = Math.floor(Math.random() * 10);
+            y = Math.floor(Math.random() * 10);
+            shot = attack([x, y]);
+        }
+    };
+
     return {
         attack,
         setEnemy,
         getTurn,
+        makeRandomAttack,
         board,
     };
 };
