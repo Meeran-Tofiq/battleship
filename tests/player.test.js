@@ -29,3 +29,19 @@ describe('player attacks', () => {
         expect(player.attack([9, 9])).toBe(false);
     });
 });
+
+describe('random attacks for AI', () => {
+    let player;
+    let board;
+
+    beforeEach(() => {
+        board = gameBoardFactory();
+        player = playerFactory(true, board);
+    });
+
+    it('attacks until it hits a spot', () => {
+        let copy = board.getBoard();
+        player.makeRandomAttack();
+        expect(copy).not.toBe(board.getBoard());
+    });
+});
