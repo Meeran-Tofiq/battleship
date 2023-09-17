@@ -57,10 +57,15 @@ const gameBoardFactory = () => {
         return true;
     };
 
+    const canBeShotAt = (p) => {
+        return board[p[0]][p[1]] === undefined;
+    };
+
     return {
         placeShip,
         recieveHit,
         haveLost,
+        canBeShotAt,
     };
 };
 
