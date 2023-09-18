@@ -31,7 +31,9 @@ const createMainGameArea = () => {
 const createFooter = () => {
     const footer = document.createElement('footer');
 
-    const credits = document.createElement('p');
+    const credits = document.createElement('span');
+    credits.innerHTML =
+        '<i class="fa-brands fa-github"></a> Made by <a href="https://github.com/Meeran-Tofiq">Meeran Tofiq';
 
     footer.append(credits);
     return footer;
