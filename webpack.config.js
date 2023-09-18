@@ -11,7 +11,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Weather App',
+            title: 'Battleship',
         }),
         new MiniCssExtractPlugin(),
     ],
