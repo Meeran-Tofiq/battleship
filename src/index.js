@@ -1,3 +1,3 @@
-import { loadInitialPage } from './initial-page';
+import { loadInitialPage } from './page-layout';
 
 loadInitialPage();
