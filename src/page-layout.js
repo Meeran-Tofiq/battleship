@@ -19,6 +19,11 @@ const loadInitialPage = () => {
 const createHeader = () => {
     const header = document.createElement('header');
 
+    const battleshipLogo = document.createElement('h1');
+    battleshipLogo.innerText = 'Battleship';
+
+    header.append(battleshipLogo);
+
     return header;
 };
 
