@@ -30,7 +30,44 @@ const createHeader = () => {
 const createMainGameArea = () => {
     const main = document.createElement('main');
 
+    const gameArea = document.createElement('div');
+    const playerBoard = document.createElement('div');
+    const opponentBoard = document.createElement('div');
+    const gameButton = document.createElement('button');
+    const rotateButton = document.createElement('button');
+
+    const shipsDiv = createShipsContainer();
+
+    gameArea.append(
+        playerBoard,
+        opponentBoard,
+        gameButton,
+        rotateButton,
+        shipsDiv
+    );
+    main.append(gameArea);
     return main;
+};
+
+const createShipsContainer = () => {
+    const shipsDiv = document.createElement('div');
+
+    const ship1 = createShip(5);
+    const ship2 = createShip(4);
+    const ship3 = createShip(3);
+    const ship4 = createShip(3);
+    const ship5 = createShip(2);
+
+    shipsDiv.append(ship1, ship2, ship3, ship4, ship5);
+    return shipsDiv;
+};
+
+const createShip = (length) => {
+    const button = document.createElement('button');
+
+    button.addEventListener('click', () => {});
+
+    return button;
 };
 
 const createFooter = () => {
