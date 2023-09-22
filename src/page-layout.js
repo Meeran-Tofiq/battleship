@@ -102,7 +102,7 @@ const createShipFunc = () => {
         const ship = document.createElement('div');
 
         ship.setAttribute('id', `ship-${id++}`);
-        ship.setAttribute('length', `${length}`);
+        ship.setAttribute('data-length', `${length}`);
 
         return ship;
     };
