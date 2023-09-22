@@ -1,4 +1,7 @@
-import { setupShipSizeVariability } from './place-ships';
+import {
+    setupShipHoverOverPlayerBoard,
+    setupShipSizeVariability,
+} from './place-ships';
 
 const loadInitialPage = () => {
     const content = document.createElement('div');
@@ -47,6 +50,8 @@ const createMainGameArea = () => {
 
     const shipsDiv = createShipsContainer();
     setupShipSizeVariability(shipsDiv);
+
+    setupShipHoverOverPlayerBoard(playerBoard);
 
     gameArea.classList.add('game-area');
 
