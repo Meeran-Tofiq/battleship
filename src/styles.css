@@ -1,0 +1,15 @@
+:root {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 2fr 12fr 2rem;
+
+    height: 100%;
+}
