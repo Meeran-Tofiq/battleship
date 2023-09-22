@@ -17,6 +17,16 @@ body {
     justify-content: center;
 }
 
+header {
+    justify-self: center;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    gap: 2rem;
+}
+
 .board {
     display: grid;
     grid-template-rows: repeat(10, 1fr);

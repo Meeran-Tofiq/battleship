@@ -40,14 +40,8 @@ const createMainGameArea = () => {
 
     gameArea.classList.add('game-area');
 
-    gameArea.append(
-        shipsDiv,
-        playerBoard,
-        opponentBoard,
-        gameButton,
-        rotateButton
-    );
-    main.append(gameArea);
+    gameArea.append(shipsDiv, playerBoard, opponentBoard);
+    main.append(gameArea, gameButton, rotateButton);
     return main;
 };
 
