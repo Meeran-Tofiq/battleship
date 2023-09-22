@@ -1,5 +1,5 @@
 let length = 0;
-let vertical = true;
+let vertical = false;
 
 const setupShipSizeVariability = (shipsContainer) => {
     Array.from(shipsContainer.children).forEach((ship) => {
@@ -72,4 +72,14 @@ const colorTiles = (tiles, color) => {
     });
 };
 
-export { setupShipSizeVariability, setupShipHoverOverPlayerBoard };
+const setupShipRotationButton = (btn) => {
+    btn.addEventListener('click', () => {
+        vertical = !vertical;
+    });
+};
+
+export {
+    setupShipSizeVariability,
+    setupShipHoverOverPlayerBoard,
+    setupShipRotationButton,
+};
