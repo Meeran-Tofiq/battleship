@@ -51,6 +51,9 @@ const createMainGameArea = () => {
 
 const createShipsContainer = () => {
     const shipsDiv = document.createElement('div');
+    shipsDiv.classList.add('ships-container');
+
+    const createShip = createShipFunc();
 
     const ship1 = createShip(5);
     const ship2 = createShip(4);
@@ -62,12 +65,18 @@ const createShipsContainer = () => {
     return shipsDiv;
 };
 
-const createShip = (length) => {
-    const button = document.createElement('button');
+const createShipFunc = () => {
+    let id = 1;
 
-    button.addEventListener('click', () => {});
+    return (length) => {
+        const ship = document.createElement('div');
 
-    return button;
+        ship.addEventListener('click', () => {});
+
+        ship.setAttribute('id', `ship-${id++}`);
+
+        return ship;
+    };
 };
 
 const createFooter = () => {
