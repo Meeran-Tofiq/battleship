@@ -62,7 +62,6 @@ const getShipTiles = (x, y, playerBoard) => {
     arr = arr.filter(
         (tile) => tile.getAttribute(`${mName}`) <= ~~main + ~~length - 1
     );
-    console.log(arr);
     return arr;
 };
 

@@ -17,7 +17,6 @@ const loadInitialPage = () => {
     // footer
     const footer = createFooter();
 
-    console.log('hello');
     content.append(header, main, footer);
     document.body.append(content);
 };
