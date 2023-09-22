@@ -1,7 +1,4 @@
-import {
-    setupShipHoverOverPlayerBoard,
-    setupShipSizeVariability,
-} from './place-ships';
+import { setupShipSizeVariability } from './place-ships';
 
 const loadInitialPage = () => {
     const content = document.createElement('div');
@@ -50,7 +47,6 @@ const createMainGameArea = () => {
 
     const shipsDiv = createShipsContainer();
     setupShipSizeVariability(shipsDiv);
-    setupShipHoverOverPlayerBoard(playerBoard);
 
     gameArea.classList.add('game-area');
 
@@ -69,8 +65,8 @@ const createBoard = (id) => {
         for (let j = 0; j < 10; j++) {
             let d = document.createElement('div');
             d.classList.add('tile');
-            d.setAttribute('data-x', j);
-            d.setAttribute('data-y', i);
+            d.setAttribute('x', j);
+            d.setAttribute('y', i);
             row.append(d);
         }
         board.append(row);
@@ -102,7 +98,7 @@ const createShipFunc = () => {
         const ship = document.createElement('div');
 
         ship.setAttribute('id', `ship-${id++}`);
-        ship.setAttribute('data-length', `${length}`);
+        ship.setAttribute('length', `${length}`);
 
         return ship;
     };
