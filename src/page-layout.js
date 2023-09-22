@@ -31,8 +31,8 @@ const createMainGameArea = () => {
     const main = document.createElement('main');
 
     const gameArea = document.createElement('div');
-    const playerBoard = createBoard('player-board');
-    const opponentBoard = createBoard('opponent-board');
+    const playerBoard = createBoard('player');
+    const opponentBoard = createBoard('opponent');
     const gameButton = document.createElement('button');
     const rotateButton = document.createElement('button');
 
@@ -54,6 +54,7 @@ const createMainGameArea = () => {
 const createBoard = (id) => {
     const board = document.createElement('div');
     board.setAttribute('id', id);
+    board.classList.add('board');
 
     for (let i = 0; i < 10; i++) {
         let row = document.createElement('div');
