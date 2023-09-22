@@ -33,8 +33,15 @@ const createMainGameArea = () => {
     const gameArea = document.createElement('div');
     const playerBoard = createBoard('player');
     const opponentBoard = createBoard('opponent');
+
     const gameButton = document.createElement('button');
     const rotateButton = document.createElement('button');
+
+    gameButton.classList.add('game-start-reset');
+    rotateButton.classList.add('rotate');
+
+    gameButton.innerText = 'Start Game!';
+    rotateButton.innerText = 'Rotate';
 
     const shipsDiv = createShipsContainer();
 
