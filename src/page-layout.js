@@ -31,22 +31,42 @@ const createMainGameArea = () => {
     const main = document.createElement('main');
 
     const gameArea = document.createElement('div');
-    const playerBoard = document.createElement('div');
-    const opponentBoard = document.createElement('div');
+    const playerBoard = createBoard('player-board');
+    const opponentBoard = createBoard('opponent-board');
     const gameButton = document.createElement('button');
     const rotateButton = document.createElement('button');
 
     const shipsDiv = createShipsContainer();
 
+    gameArea.classList.add('game-area');
+
     gameArea.append(
+        shipsDiv,
         playerBoard,
         opponentBoard,
         gameButton,
-        rotateButton,
-        shipsDiv
+        rotateButton
     );
     main.append(gameArea);
     return main;
+};
+
+const createBoard = (id) => {
+    const board = document.createElement('div');
+    board.setAttribute('id', id);
+
+    for (let i = 0; i < 10; i++) {
+        let row = document.createElement('div');
+        for (let j = 0; j < 10; j++) {
+            let d = document.createElement('div');
+            d.classList.add(`y-${i}`);
+            d.classList.add(`x-${j}`);
+            row.append(d);
+        }
+        board.append(row);
+    }
+
+    return board;
 };
 
 const createShipsContainer = () => {
