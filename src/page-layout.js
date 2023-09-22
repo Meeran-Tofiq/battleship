@@ -87,9 +87,8 @@ const createShipFunc = () => {
     return (length) => {
         const ship = document.createElement('div');
 
-        ship.addEventListener('click', () => {});
-
         ship.setAttribute('id', `ship-${id++}`);
+        ship.setAttribute('length', `${length}`);
 
         return ship;
     };
