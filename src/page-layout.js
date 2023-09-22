@@ -1,3 +1,5 @@
+import { setupShipSizeVariability } from './place-ships';
+
 const loadInitialPage = () => {
     const content = document.createElement('div');
     content.classList.add('content');
@@ -44,6 +46,7 @@ const createMainGameArea = () => {
     rotateButton.innerText = 'Rotate';
 
     const shipsDiv = createShipsContainer();
+    setupShipSizeVariability(shipsDiv);
 
     gameArea.classList.add('game-area');
 
