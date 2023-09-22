@@ -60,8 +60,9 @@ const createBoard = (id) => {
         let row = document.createElement('div');
         for (let j = 0; j < 10; j++) {
             let d = document.createElement('div');
-            d.classList.add(`y-${i}`);
-            d.classList.add(`x-${j}`);
+            d.classList.add('tile');
+            d.setAttribute('x', j);
+            d.setAttribute('y', i);
             row.append(d);
         }
         board.append(row);
