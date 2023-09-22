@@ -106,7 +106,7 @@ const createFooter = () => {
 
     const credits = document.createElement('span');
     credits.innerHTML =
-        '<i class="fa-brands fa-github"></a> Made by <a href="https://github.com/Meeran-Tofiq">Meeran Tofiq';
+        '<i class="fa-brands fa-github"></i> Made by <a href="https://github.com/Meeran-Tofiq">Meeran Tofiq</a>';
 
     footer.append(credits);
     return footer;
