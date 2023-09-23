@@ -1,5 +1,8 @@
 let length = 0;
 let vertical = false;
+let ships = [];
+let tiles = [];
+let taken = [];
 
 const setupShipSizeVariability = (shipsContainer) => {
     Array.from(shipsContainer.children).forEach((ship) => {
@@ -21,8 +24,9 @@ const setupShipHoverOverPlayerBoard = (playerBoard) => {
                     if (x > 10 - length) return false;
                 }
 
-                let arr = getShipTiles(x, y, playerBoard);
-                colorTiles(arr, '#03bb00');
+                tiles = getShipTiles(x, y, playerBoard);
+                taken = tiles.map((tile) => tile.classList.contains('taken'));
+                if (!taken.includes(true)) colorTiles(tiles, '#03bb00');
             });
             tile.addEventListener('mouseout', () => {
                 let x = ~~tile.getAttribute('x');
@@ -33,8 +37,10 @@ const setupShipHoverOverPlayerBoard = (playerBoard) => {
                     if (x > 10 - length) return false;
                 }
 
-                let arr = getShipTiles(x, y, playerBoard);
-                colorTiles(arr, 'white');
+                let nonTaken = tiles.filter(
+                    (tile) => !tile.classList.contains('taken')
+                );
+                colorTiles(nonTaken, 'white');
             });
         });
     });
@@ -77,8 +83,25 @@ const setupShipRotationButton = (btn) => {
     });
 };
 
+const setupClickingToPlaceShip = (playerBoard) => {
+    Array.from(playerBoard.children).forEach((row) => {
+        Array.from(row.children).forEach((tile) => {
+            tile.addEventListener('click', () => {
+                if (
+                    tiles.map(
+                        (tile) => tile.style.backgroundColor === '#03bb00'
+                    )
+                ) {
+                    tiles.forEach((tile) => tile.classList.add('taken'));
+                }
+            });
+        });
+    });
+};
+
 export {
     setupShipSizeVariability,
     setupShipHoverOverPlayerBoard,
     setupShipRotationButton,
+    setupClickingToPlaceShip,
 };

@@ -1,4 +1,5 @@
 import {
+    setupClickingToPlaceShip,
     setupShipHoverOverPlayerBoard,
     setupShipRotationButton,
     setupShipSizeVariability,
@@ -52,6 +53,7 @@ const createMainGameArea = () => {
 
     setupShipSizeVariability(shipsDiv);
     setupShipHoverOverPlayerBoard(playerBoard);
+    setupClickingToPlaceShip(playerBoard);
     setupShipRotationButton(rotateButton);
 
     gameArea.classList.add('game-area');
