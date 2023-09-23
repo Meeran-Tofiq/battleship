@@ -5,7 +5,7 @@ const gameBoardFactory = () => {
     let ships = [];
 
     const placeShip = (p1, p2) => {
-        if (p1[0] > 10 || p1[1] > 10 || p2[0] > 10 || p2[1] > 10) return false;
+        if (p1[0] > 9 || p1[1] > 9 || p2[0] > 9 || p2[1] > 9) return false;
 
         let vert = p1[1] !== p2[1];
         let len, xArr, yArr;
@@ -67,12 +67,24 @@ const gameBoardFactory = () => {
         return [...board];
     };
 
+    const print = () => {
+        board.forEach((row) => {
+            let str = '';
+            row.forEach((cell) => {
+                if (cell) str += 'S, ';
+                else str += '-, ';
+            });
+            console.log(str);
+        });
+    };
+
     return {
         placeShip,
         recieveHit,
         haveLost,
         canBeShotAt,
         getBoard,
+        print,
     };
 };
 
