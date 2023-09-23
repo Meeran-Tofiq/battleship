@@ -58,7 +58,9 @@ const gameBoardFactory = () => {
     };
 
     const canBeShotAt = (p) => {
-        return board[p[0]][p[1]] === undefined;
+        if (p[0] > 9 || p[1] > 9) return false;
+        let point = board[p[0]][p[1]];
+        return point !== -1 && point !== 0;
     };
 
     const getBoard = () => {
