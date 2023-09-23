@@ -7,7 +7,8 @@ let taken = [];
 const setupShipSizeVariability = (shipsContainer) => {
     Array.from(shipsContainer.children).forEach((ship) => {
         ship.addEventListener('click', () => {
-            length = ship.getAttribute('length');
+            if (!ship.getAttribute('placed'))
+                length = ship.getAttribute('length');
         });
     });
 };
@@ -93,6 +94,9 @@ const setupClickingToPlaceShip = (playerBoard) => {
                     )
                 ) {
                     tiles.forEach((tile) => tile.classList.add('taken'));
+                    let ship = document.querySelector(`[length="${length}"]`);
+                    ship.setAttribute('placed', 'true');
+                    length = 0;
                 }
             });
         });
