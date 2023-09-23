@@ -45,3 +45,20 @@ describe('random attacks for AI', () => {
         expect(copy).not.toBe(board.getBoard());
     });
 });
+
+describe('place random ships for A.I.', () => {
+    let opponent;
+
+    beforeEach(() => (opponent = playerFactory(false)));
+
+    it('places 5 random ships down', () => {
+        opponent.placeRandomShips();
+        let ans = 0;
+        opponent.board.getBoard().forEach((row) => {
+            row.forEach((cell) => {
+                if (cell) ans++;
+            });
+        });
+        expect(ans).toBe(17);
+    });
+});
