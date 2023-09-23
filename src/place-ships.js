@@ -103,6 +103,16 @@ const setupClickingToPlaceShip = (playerBoard) => {
                     )[0];
                     ship.setAttribute('placed', 'true');
                     length = 0;
+                    ships.append({
+                        p1: [
+                            tiles[0].getAttribute('x'),
+                            tiles[0].getAttribute('y'),
+                        ],
+                        p2: [
+                            tiles.slice(-1).getAttribute('x'),
+                            tiles.slice(-1).getAttribute('y'),
+                        ],
+                    });
                 }
             });
         });
@@ -115,3 +125,5 @@ export {
     setupShipRotationButton,
     setupClickingToPlaceShip,
 };
+
+export { ships };
