@@ -91,10 +91,16 @@ const setupClickingToPlaceShip = (playerBoard) => {
                 if (
                     tiles.map(
                         (tile) => tile.style.backgroundColor === '#03bb00'
-                    )
+                    ) &&
+                    length !== 0
                 ) {
                     tiles.forEach((tile) => tile.classList.add('taken'));
-                    let ship = document.querySelector(`[length="${length}"]`);
+                    let ships = document.querySelectorAll(
+                        `[length="${length}"]`
+                    );
+                    let ship = Array.from(ships).filter(
+                        (ship) => !ship.getAttribute('placed')
+                    )[0];
                     ship.setAttribute('placed', 'true');
                     length = 0;
                 }
