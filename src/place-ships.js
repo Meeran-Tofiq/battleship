@@ -105,14 +105,14 @@ const setupClickingToPlaceShip = (playerBoard) => {
                     length = 0;
                     console.log(placedShips);
                     placedShips.push({
-                        p1: {
-                            x: tiles[0].getAttribute('x'),
-                            y: tiles[0].getAttribute('y'),
-                        },
-                        p2: {
-                            x: tiles.slice(-1)[0].getAttribute('x'),
-                            y: tiles.slice(-1)[0].getAttribute('y'),
-                        },
+                        p1: [
+                            tiles[0].getAttribute('x'),
+                            tiles[0].getAttribute('y'),
+                        ],
+                        p2: [
+                            tiles.slice(-1)[0].getAttribute('x'),
+                            tiles.slice(-1)[0].getAttribute('y'),
+                        ],
                     });
                 }
             });
