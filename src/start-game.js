@@ -1,4 +1,4 @@
-import { ships } from './place-ships';
+import { placedShips } from './place-ships';
 import { playerFactory } from './player';
 
 const setupGameButton = (btn) => {
@@ -12,5 +12,10 @@ const startGame = () => {
     let opponent = playerFactory(false, player);
     player.setEnemy(opponent);
 
-    ships.forEach((ship) => player.board.placeShip(ship.p1, ship.p1));
+    placedShips.forEach((ship) => player.board.placeShip(ship.p1, ship.p2));
+    opponent.placeRandomShips();
+
+    console.log(opponent.board.print());
 };
+
+export { setupGameButton };

@@ -4,6 +4,7 @@ import {
     setupShipRotationButton,
     setupShipSizeVariability,
 } from './place-ships';
+import { setupGameButton } from './start-game';
 
 const loadInitialPage = () => {
     const content = document.createElement('div');
@@ -55,6 +56,7 @@ const createMainGameArea = () => {
     setupShipHoverOverPlayerBoard(playerBoard);
     setupClickingToPlaceShip(playerBoard);
     setupShipRotationButton(rotateButton);
+    setupGameButton(gameButton);
 
     gameArea.classList.add('game-area');
 
