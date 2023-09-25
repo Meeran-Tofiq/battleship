@@ -44,6 +44,13 @@ describe('random attacks for AI', () => {
         player.makeRandomAttack();
         expect(copy).not.toBe(board.getBoard());
     });
+
+    it('returns the spot it attacked', () => {
+        let spot = player.makeRandomAttack();
+        let validX = spot[0] < 10 && spot[0] >= 0;
+        let validY = spot[1] < 10 && spot[1] >= 0;
+        expect(validX && validY).toBe(true);
+    });
 });
 
 describe('place random ships for A.I.', () => {
