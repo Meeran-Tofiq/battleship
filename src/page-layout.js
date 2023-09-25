@@ -72,6 +72,7 @@ const createBoard = (id) => {
 
     for (let i = 0; i < 10; i++) {
         let row = document.createElement('div');
+        row.classList.add('row');
         for (let j = 0; j < 10; j++) {
             let d = document.createElement('div');
             d.classList.add('tile');
