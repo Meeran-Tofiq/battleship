@@ -106,6 +106,25 @@ describe('showing cells that can be shot by the other player', () => {
     });
 });
 
+describe('telling you whether a spot has a ship or not', () => {
+    let board;
+    beforeEach(() => (board = gameBoardFactory()));
+
+    it('returns true if that spot is a ship', () => {
+        board.placeShip([1, 1], [1, 3]);
+        expect(board.hasShipAt([1, 1])).toBe(true);
+        expect(board.hasShipAt([1, 2])).toBe(true);
+        expect(board.hasShipAt([1, 3])).toBe(true);
+    });
+
+    it('returns false when the spot is empty', () => {
+        board.placeShip([4, 5], [9, 5]);
+        expect(board.hasShipAt([1, 1])).toBe(false);
+        expect(board.hasShipAt([1, 2])).toBe(false);
+        expect(board.hasShipAt([1, 3])).toBe(false);
+    });
+});
+
 it('is not possible gameBoard objects to have the same board', () => {
     let a = gameBoardFactory();
     let b = gameBoardFactory();
