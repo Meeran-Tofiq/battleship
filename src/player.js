@@ -31,6 +31,8 @@ const playerFactory = (t, opp) => {
             y = Math.floor(Math.random() * 10);
             shot = attack([x, y]);
         }
+
+        return [x, y];
     };
 
     const placeRandomShips = () => {
