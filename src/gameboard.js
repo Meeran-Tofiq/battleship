@@ -67,6 +67,10 @@ const gameBoardFactory = () => {
         return [...board];
     };
 
+    const hasShipAt = (p) => {
+        return !!board[p[0]][p[1]];
+    };
+
     const print = () => {
         board.forEach((row) => {
             let str = '';
@@ -85,6 +89,7 @@ const gameBoardFactory = () => {
         canBeShotAt,
         getBoard,
         print,
+        hasShipAt,
     };
 };
 
