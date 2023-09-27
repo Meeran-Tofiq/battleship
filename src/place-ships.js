@@ -7,7 +7,7 @@ let taken = [];
 const setupShipSizeVariability = (shipsContainer) => {
     Array.from(shipsContainer.children).forEach((ship) => {
         ship.addEventListener('click', () => {
-            if (!ship.getAttribute('placed'))
+            if (!ship.classList.contains('placed'))
                 length = ship.getAttribute('length');
         });
     });
@@ -108,9 +108,9 @@ const setupClickingToPlaceShip = (playerBoard) => {
                         `[length="${length}"]`
                     );
                     let ship = Array.from(ships).filter(
-                        (ship) => !ship.getAttribute('placed')
+                        (ship) => !ship.classList.contains('placed')
                     )[0];
-                    ship.setAttribute('placed', 'true');
+                    ship.classList.add('placed');
                     length = 0;
                     placedShips.push({
                         p1: [

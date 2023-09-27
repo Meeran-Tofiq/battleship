@@ -41,6 +41,10 @@ header {
     height: 2rem;
 }
 
+.ships-container div.placed {
+    background-color: #0f7e0d;
+}
+
 #ship-1 {
     width: 10rem;
 }
@@ -59,10 +63,6 @@ header {
 
 #ship-5 {
     width: 4rem;
-}
-
-.ships-container div[placed="true"] {
-    background-color: #0f7e0d;
 }
 
 .board {
