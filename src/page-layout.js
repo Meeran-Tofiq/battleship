@@ -41,9 +41,11 @@ const createMainGameArea = () => {
     const playerBoard = createBoard('player');
     const opponentBoard = createBoard('opponent');
 
+    const buttonDiv = document.createElement('div');
     const gameButton = document.createElement('button');
     const rotateButton = document.createElement('button');
 
+    buttonDiv.classList.add('button-div');
     gameButton.classList.add('game-start-reset');
     rotateButton.classList.add('rotate');
 
@@ -68,8 +70,9 @@ const createMainGameArea = () => {
 
     gameArea.classList.add('game-area');
 
+    buttonDiv.append(gameButton, rotateButton);
     gameArea.append(shipsDiv, playerBoard, opponentBoard);
-    main.append(gameArea, gameButton, rotateButton);
+    main.append(gameArea, buttonDiv);
     return main;
 };
 
