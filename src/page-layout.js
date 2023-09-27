@@ -16,10 +16,13 @@ const loadInitialPage = () => {
     // main game area
     const main = createMainGameArea();
 
+    // winner popup
+    const popup = createWinnerPopup();
+
     // footer
     const footer = createFooter();
 
-    content.append(header, main, footer);
+    content.append(header, main, footer, popup);
     document.body.append(content);
 };
 
@@ -135,6 +138,14 @@ const createFooter = () => {
 
     footer.append(credits);
     return footer;
+};
+
+const createWinnerPopup = () => {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerText = 'YOU WON!';
+
+    return popup;
 };
 
 export { loadInitialPage };

@@ -6,6 +6,7 @@ const setupGameButton = (btn) => {
     let start = false;
     btn.addEventListener('click', () => {
         let ships = [...document.querySelector('.ships-container').children];
+        document.querySelector('.popup').classList.remove('visible');
         if (
             ships.filter((ship) => ship.classList.contains('placed')).length !==
             5
@@ -56,10 +57,10 @@ const startGame = async () => {
         }
 
         if (opponent.board.haveLost()) {
-            console.log('YOU WON!');
+            declareWinner(true);
             break;
         } else if (player.board.haveLost()) {
-            console.log('YOU LOST!');
+            declareWinner(false);
             break;
         }
     }
@@ -73,6 +74,12 @@ const restart = () => {
     tiles.forEach((tile) => tile.classList.remove('hit', 'taken'));
 
     resetPlacedShips();
+};
+
+const declareWinner = (winner) => {
+    let popup = document.querySelector('.popup');
+    popup.classList.add('visible');
+    popup.innerText = winner ? 'YOU WON' : 'YOU LOST';
 };
 
 export { setupGameButton };
