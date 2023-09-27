@@ -16,6 +16,22 @@ describe("player's turn", () => {
     });
 });
 
+describe("switching the player's turn", () => {
+    let player;
+    beforeEach(() => (player = playerFactory(true, gameBoardFactory())));
+
+    it('switches turn from true to false', () => {
+        player.switchTurn();
+        expect(player.getTurn()).toBe(false);
+    });
+
+    it('switches turn from false to true', () => {
+        player.switchTurn();
+        player.switchTurn();
+        expect(player.getTurn()).toBe(true);
+    });
+});
+
 describe('player attacks', () => {
     let player;
     beforeEach(() => (player = playerFactory(true, gameBoardFactory())));
