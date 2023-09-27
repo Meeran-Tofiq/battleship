@@ -56,7 +56,11 @@ const createMainGameArea = () => {
     setupShipHoverOverPlayerBoard(playerBoard);
     setupClickingToPlaceShip(playerBoard);
     setupShipRotationButton(rotateButton);
-    setupGameButton(gameButton);
+    setupGameButton(gameButton, () => {
+        playerBoard.replaceWith(createBoard('player'));
+        opponentBoard.replaceWith(createBoard('opponent'));
+        shipsDiv.replaceWith(createShipsContainer());
+    });
 
     gameArea.classList.add('game-area');
 

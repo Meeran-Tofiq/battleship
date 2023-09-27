@@ -2,9 +2,15 @@ import { placedShips } from './place-ships';
 import { playerFactory } from './player';
 import { getPlayerAttack, updateBoardWithAttack } from './ship-attacks';
 
-const setupGameButton = (btn) => {
+const setupGameButton = (btn, callback) => {
+    let start = false;
     btn.addEventListener('click', () => {
-        startGame();
+        if (!start) {
+            startGame();
+        } else {
+            callback();
+        }
+        start = !start;
     });
 };
 
