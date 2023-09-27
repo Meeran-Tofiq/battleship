@@ -82,6 +82,19 @@ header {
     border: 1px solid grey;
 }
 
+.tile.hover,
+.tile.taken {
+    background-color: #03bb00;
+}
+
+.tile.hit {
+    background-color: #909090;
+}
+
+.tile.taken.hit {
+    background-color: #d30d06;
+}
+
 footer {
     justify-self: center;
 }

@@ -27,7 +27,7 @@ const setupShipHoverOverPlayerBoard = (playerBoard) => {
 
                 tiles = getShipTiles(x, y, playerBoard);
                 taken = tiles.map((tile) => tile.classList.contains('taken'));
-                if (!taken.includes(true)) colorTiles(tiles, '#03bb00');
+                if (!taken.includes(true)) giveTilesClass(tiles, 'hover');
             });
             tile.addEventListener('mouseout', () => {
                 let x = ~~tile.getAttribute('x');
@@ -41,7 +41,7 @@ const setupShipHoverOverPlayerBoard = (playerBoard) => {
                 let nonTaken = tiles.filter(
                     (tile) => !tile.classList.contains('taken')
                 );
-                colorTiles(nonTaken, 'white');
+                removeTilesClass(nonTaken, 'hover');
             });
         });
     });
@@ -72,9 +72,15 @@ const getShipTiles = (x, y, playerBoard) => {
     return arr;
 };
 
-const colorTiles = (tiles, color) => {
+const giveTilesClass = (tiles, className) => {
     tiles.forEach((tile) => {
-        tile.style.backgroundColor = color;
+        if (className) tile.classList.add(className);
+    });
+};
+
+const removeTilesClass = (tiles, className) => {
+    tiles.forEach((tile) => {
+        if (className) tile.classList.remove(className);
     });
 };
 
@@ -89,12 +95,15 @@ const setupClickingToPlaceShip = (playerBoard) => {
         Array.from(row.children).forEach((tile) => {
             tile.addEventListener('click', () => {
                 if (
-                    tiles.map(
-                        (tile) => tile.style.backgroundColor === '#03bb00'
-                    ) &&
+                    !tiles
+                        .map((tile) => tile.classList.contains('taken'))
+                        .includes(true) &&
                     length !== 0
                 ) {
-                    tiles.forEach((tile) => tile.classList.add('taken'));
+                    tiles.forEach((tile) => {
+                        tile.classList.add('taken');
+                        tile.classList.remove('hover');
+                    });
                     let ships = document.querySelectorAll(
                         `[length="${length}"]`
                     );
@@ -103,7 +112,6 @@ const setupClickingToPlaceShip = (playerBoard) => {
                     )[0];
                     ship.setAttribute('placed', 'true');
                     length = 0;
-                    console.log(placedShips);
                     placedShips.push({
                         p1: [
                             ~~tiles[0].getAttribute('x'),
