@@ -128,11 +128,16 @@ const setupClickingToPlaceShip = (playerBoard) => {
     });
 };
 
+const resetPlacedShips = () => {
+    placedShips = [];
+};
+
 export {
     setupShipSizeVariability,
     setupShipHoverOverPlayerBoard,
     setupShipRotationButton,
     setupClickingToPlaceShip,
+    resetPlacedShips,
 };
 
 export { placedShips };
