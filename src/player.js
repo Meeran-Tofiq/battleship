@@ -14,6 +14,10 @@ const playerFactory = (t, opp) => {
         } else return false;
     };
 
+    const switchTurn = () => {
+        turn = !turn;
+    };
+
     const getTurn = () => {
         return turn;
     };
@@ -73,6 +77,7 @@ const playerFactory = (t, opp) => {
         getTurn,
         makeRandomAttack,
         placeRandomShips,
+        switchTurn,
         board,
     };
 };
