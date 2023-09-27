@@ -68,7 +68,7 @@ const gameBoardFactory = () => {
     };
 
     const hasShipAt = (p) => {
-        return !!board[p[0]][p[1]];
+        return board[p[0]][p[1]] !== undefined;
     };
 
     const print = () => {
