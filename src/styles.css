@@ -95,6 +95,34 @@ header {
     background-color: #d30d06;
 }
 
+main .button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+main .button-div button {
+    appearance: none;
+
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+
+    width: fit-content;
+    height: 3.5rem;
+    font-size: large;
+    text-align: center;
+    
+    border-radius: 2rem 2rem 2rem 2rem;
+    border: none;
+}
+
+main .button-div button:active {
+    filter: brightness(50%);
+}
+
 footer {
     justify-self: center;
 }
