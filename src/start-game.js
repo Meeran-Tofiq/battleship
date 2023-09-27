@@ -7,8 +7,10 @@ const setupGameButton = (btn, callback) => {
     btn.addEventListener('click', () => {
         if (!start) {
             startGame();
+            btn.innerText = 'Reset Board!';
         } else {
             callback();
+            btn.innerText = 'Start Game!';
         }
         start = !start;
     });
