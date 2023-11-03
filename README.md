@@ -10,4 +10,4 @@ I built this application as part of The Odin Project's required assignments. Thi
 
 ## How to use?
 
-Just open the github pages for this repository, and enjoy playing!
+Just open the github pages for this repository (or click this [link](https://meeran-tofiq.github.io/battleship/)), and enjoy playing!
